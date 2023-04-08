@@ -1,0 +1,273 @@
+@import "./same";
+@import "./Variables";
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $headerMobi;
+    padding: 0 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    h3 {
+        color: $big;
+        font-size: 1.2em;
+        padding: 2% 0;
+    }
+    position: relative;
+    ul {
+        padding: 20px;
+        display: flex; gap: 60px; 
+        font-size: 1.1em;
+        li {
+            &:nth-child(1) a{
+                color: black;
+            }
+            a {
+                color: $tiny;
+            }
+        } 
+    }
+}
+
+#menu {
+    display: none;
+}
+#bar {
+    font-size: 24px;
+    display: none;
+}
+
+// Showcase section start
+
+.showcase {
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-image: url("../media/dasturchi.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    .empower {
+        position: absolute;
+        width: 90%;
+        font-family: 'Montserrat', sans-serif;
+        padding: 10%;
+        font-size: 20px;
+        h1 {
+            @include Sarlavha(60%, 3.2em, 0);
+        }
+        p {
+            @include desc(50%, 1em, 500, 50px, 0);
+        }
+        .link {
+            @include myBtn();
+        }
+
+        .link:hover {
+            background-color: $primaryColor;
+            color: white;
+        }
+    }
+}
+
+.cards {
+    position: absolute;
+    bottom: -15%;
+    left: 10%;
+    @include cards(3);
+    .card {
+        // transform: translate(0, -40%);
+        @include card();
+        h1 {
+            @include Sarlavha(90%, 1.5em, 0, 0);
+        }
+
+        p {
+            @include desc(90%, 1em, 200, 0, 0);
+        }
+    }
+    .logo {
+        @include logo();
+        a {
+            i{
+                color: $mainColor;
+            }
+        }
+    }
+}
+
+.about {
+    position: relative;
+    padding: 2%;
+    // top: 110%;
+    // background-color: aqua;
+    @include Sarlavha(100%, 22px, 0, 0);
+    margin: 15% auto;
+    text-align: center;
+    .about-cards {
+        @include cards(4);
+        .card {
+            @include card();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+// @media (max-width: 1400px)
+// {
+//     .showcase {
+//         .empower {
+//             top: -20%;
+//         }
+//     }
+//     .cards {
+//         top: 80%;
+//     }
+// }
+
+@media (max-width: 1350px)
+{
+    .showcase {
+        .empower {
+            h1 {
+                @include Sarlavha(80%, 3em, 0);
+            }
+            p {
+                @include desc(50%, 1.2em, 500);
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px)
+{
+    .showcase {
+        height: 100vh;
+        .empower {
+            h1 {
+                @include Sarlavha(100%, 2em, 0.3em);
+            }
+            p {
+                @include desc(50%, 0.8em, 500);
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1024px)
+{
+    .showcase {
+        .empower {
+            // font-size: 15px;
+            h1 {
+                @include Sarlavha(90%, 1.8em, 0.3em);
+            }
+            p {
+                @include desc(70%, 0.8em, 500);
+            }
+        }
+    }
+
+}
+
+@media (max-width: 800px)
+{
+    header {
+        ul{
+            gap: 30px;
+        }
+    }
+    .cards {
+        @include cards(1);
+        bottom: -40%;
+    }
+
+    .showcase {
+        .empower {
+            h1 {
+                @include Sarlavha(80%, 1.7em, 0.3em);
+            }
+            p {
+                @include desc(80%, 1em, 500);
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 640px)
+{
+    header {
+        ul{
+            gap: 10px;
+            padding: 15px;
+            // display: flex; gap: 60px; 
+            font-size: 0.8em;
+        }
+    }
+}
+
+#menu {
+    &:checked + ul{
+        // background-color: blue;
+        transform: translate(110%);
+    }
+}
+
+@media (max-width: 470px)
+{
+    #bar {
+        display: inline-block;
+    }
+    header {
+        padding: 5%;
+        ul{
+            width: 100%;
+            position: absolute;
+            background-color: $headerMobi;
+            flex-direction: column; justify-content: space-around; align-items: center; gap: 50px;
+            right: 0;
+            top: 100%;
+            transition: 0.6s;
+            z-index: 2;
+            font-size: 2em;
+            font-weight: 100;
+        }
+    }
+    .showcase {
+        height: 200vh;
+        .empower {
+            width: 100%;
+            position: relative;
+            top: 30%;
+            text-align: center;
+            h1 {
+                @include Sarlavha(100%, 1.7em, 0.3em);
+            }
+            p {
+                @include desc(100%, 0.8em, 500);
+            }
+            .link {
+                margin-top: 5%;
+                display: flex; justify-content: center; align-items: center;
+            }
+        }
+
+        .cards{
+            position: relative;
+            top: 35%;
+            left: 0;
+        }
+    }
+    }
